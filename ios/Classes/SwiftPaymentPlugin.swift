@@ -247,9 +247,12 @@ public class SwiftPaymentPlugin: NSObject,FlutterPlugin ,SFSafariViewControllerD
        }
      public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
            var handler:Bool = false
-           if url.scheme?.caseInsensitiveCompare( self.shopperResultURL) == .orderedSame {
+           if url.scheme?.caseInsensitiveCompare(self.shopperResultURL) == .orderedSame {
                didReceiveAsynchronousPaymentCallback(result: self.Presult!)
                handler = true
+           } else url.scheme?.caseInsensitiveCompare("https://thaat.app/") {
+                didReceiveAsynchronousPaymentCallback(result: self.Presult!)
+                handler = true
            }
 
            return handler
