@@ -249,10 +249,12 @@ public class SwiftPaymentPlugin: NSObject,FlutterPlugin ,SFSafariViewControllerD
            var handler:Bool = false
            if url.scheme?.caseInsensitiveCompare(self.shopperResultURL) == .orderedSame {
                didReceiveAsynchronousPaymentCallback(result: self.Presult!)
+               print("com.thaat.customer")
                handler = true
-           } else url.scheme?.caseInsensitiveCompare("https://thaat.app/") {
+           } else url.scheme?.caseInsensitiveCompare("com.thaat.customer") {
                 didReceiveAsynchronousPaymentCallback(result: self.Presult!)
                 handler = true
+                print("com.thaat.customer")
            }
 
            return handler
