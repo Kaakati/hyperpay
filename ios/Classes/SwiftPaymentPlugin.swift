@@ -116,7 +116,7 @@ public class SwiftPaymentPlugin: NSObject,FlutterPlugin ,SFSafariViewControllerD
              }
              checkoutSettings.language = self.lang
              // Set available payment brands for your shop
-             checkoutSettings.shopperResultURL = self.shopperResultURL+"://result"
+             checkoutSettings.shopperResultURL = self.shopperResultURL
              if self.setStorePaymentDetailsMode=="true"{
                  checkoutSettings.storePaymentDetails = OPPCheckoutStorePaymentDetailsMode.prompt;
              }
@@ -192,7 +192,7 @@ public class SwiftPaymentPlugin: NSObject,FlutterPlugin ,SFSafariViewControllerD
                     }
                     params.isTokenizationEnabled=isEnabledTokenization;
                     //set tokenization
-                    params.shopperResultURL =  self.shopperResultURL+"://result"
+                    params.shopperResultURL =  self.shopperResultURL
                     self.transaction  = OPPTransaction(paymentParams: params)
                     self.provider.submitTransaction(self.transaction!) {
                         (transaction, error) in
